@@ -27,7 +27,7 @@ jobs:
     needs: test
     if: ${{ needs.test.result == 'success' }}
     runs-on: ubuntu-latest
-    environment: production
+    
     permissions:
       contents: write
     steps:
@@ -41,7 +41,7 @@ jobs:
           git config user.name "${GITHUB_ACTOR}"
           git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
           git fetch origin
-          git checkout -B production
-          git reset --hard origin/dev
-          git push origin production --force
+          git checkout -B prod1
+          git reset --hard origin/main
+          git push origin prod1 --force
 
